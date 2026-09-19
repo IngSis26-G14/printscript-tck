@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.23'
 }
 
 repositories {
@@ -22,12 +23,27 @@ java {
     }
 }
 
+kotlin {
+    jvmToolchain(21)
+}
+
 test {
     minHeapSize = "5m" // initial heap size
     maxHeapSize = "7m" // maximum heap size
 }
 
 dependencies {
+
+    implementation 'printScript:printscript-api:1.0-SNAPSHOT'
+    implementation 'printScript:printscript-common:1.0-SNAPSHOT'
+    implementation 'printScript:printscript-lexer:1.0-SNAPSHOT'
+    implementation 'printScript:printscript-parser:1.0-SNAPSHOT'
+    implementation 'printScript:printscript-validator:1.0-SNAPSHOT'
+    implementation 'printScript:printscript-interpreter:1.0-SNAPSHOT'
+    implementation 'printScript:printscript-linter:1.0-SNAPSHOT'
+    implementation 'printScript:printscript-formatter:1.0-SNAPSHOT'
+    implementation 'printScript:printscript-cli:1.0-SNAPSHOT'
+
     testImplementation 'junit:junit:4.13.1'
 }
 
